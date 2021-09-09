@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace PlrSim
 {
-	abstract class PlayerAction
+	class DelayAction : PlayerAction
 	{
-		public enum ActionType
+		public int m_DelayMiliSec;
+		public override Task Execute()
 		{
-			MouseAction,
-			KeyboardAction,
+			return Task.Delay(m_DelayMiliSec);
 		}
-
-		public abstract Task Execute();
 	}
 }
