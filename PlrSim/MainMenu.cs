@@ -29,6 +29,9 @@ namespace PlrSim
 			screenrect = new ScreenDetection("Test", 0,0,40,40);
 			screenrect.Detect();
 			pictureBox1.Image = screenrect.result;
+
+			MouseAction act = new MouseAction(0, 0, MouseAction.MouseEventFlags.LeftDown | MouseAction.MouseEventFlags.LeftUp);
+			act.Execute();
 		}
 
 		private void NewGameBtn_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace PlrSim
 {
@@ -17,7 +18,7 @@ namespace PlrSim
 		public abstract Task Execute();
 	}
 
-    class DelayAction : PlayerAction
+    public class DelayAction : PlayerAction
     {
         public int m_DelayMiliSec = 1;
         public override Task Execute()
@@ -100,12 +101,20 @@ namespace PlrSim
         }
         #endregion
 
-        public MouseEventFlags m_MouseEventFlag;
+        public MouseEventFlags mouseEventFlag;
         public MousePoint m_MousePoint;
-        public override Task Execute()
+
+		public MouseAction(int xPos, int yPos, MouseEventFlags mouseEvent)
+		{
+            m_MousePoint.X = xPos;
+            m_MousePoint.Y = yPos;
+			mouseEventFlag = mouseEvent;
+		}
+
+		public override Task Execute()
         {
             SetCursorPosition(m_MousePoint);
-            MouseEvent(m_MouseEventFlag);
+            MouseEvent(mouseEventFlag);
             return null;
         }
     }
