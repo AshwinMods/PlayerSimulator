@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlrSim
 {
-	class ActionSequence
+	public class ActionSequence
 	{
-		List<PlayerAction> m_PlayerActions;
+		public List<PlayerAction> m_PlayerActions = new List<PlayerAction>();
 	}
 }

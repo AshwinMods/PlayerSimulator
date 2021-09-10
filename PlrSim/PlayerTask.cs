@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlrSim
 {
-	class PatternRect
+	public class PlayerTask
 	{
+		public string name;
 	}
 }

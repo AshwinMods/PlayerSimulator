@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace PlrSim
 {
-	class DelayAction : PlayerAction
+	public class GameTask
 	{
-		public int m_DelayMiliSec;
-		public override Task Execute()
-		{
-			return Task.Delay(m_DelayMiliSec);
-		}
+		public string name;
+		public List<PlayerTask> playerTasks;
 	}
 }

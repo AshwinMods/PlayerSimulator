@@ -8,12 +8,11 @@ using System.Xml.Serialization;
 
 namespace PlrSim
 {
-	class GameConfig
+	public class GameConfig
 	{
 		#region Variable Declarations
-		string m_GameName = "Default";
-		List<PatternRect> m_Patterns = new List<PatternRect>();
-		List<ActionSequence> m_ActionSequence = new List<ActionSequence>();
+		public string name = "Default";
+		public List<GameTask> gameTasks = new List<GameTask>();
 		#endregion
 
 		#region Constructors
