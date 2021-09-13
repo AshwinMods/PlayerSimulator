@@ -37,6 +37,7 @@ namespace PlrSim
         Graphics graphics;
 
         public List<bool> m_BoolHash;
+        public ScreenDetection() { }
         public ScreenDetection(string a_Name, int xPos, int yPos, int width, int height)
         {
             name = a_Name;
@@ -48,8 +49,19 @@ namespace PlrSim
             graphics = Graphics.FromImage(result);
         }
 
+        public void Update()
+		{
+			if (m_Resolution != result.Size)
+			{
+                var newBitmap = new Bitmap(result, m_Resolution);
+                result.Dispose();
+                result = newBitmap;
+                graphics = Graphics.FromImage(result);
+            }
+		}
         public async override Task<bool> Execute()
         {
+            Update();
             graphics.CopyFromScreen(m_Coord.X, m_Coord.Y, 0, 0, m_Resolution);
             return true;
         }

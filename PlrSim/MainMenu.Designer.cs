@@ -40,7 +40,7 @@ namespace PlrSim
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.button7 = new System.Windows.Forms.Button();
-			this.button6 = new System.Windows.Forms.Button();
+			this.AddImagebutton = new System.Windows.Forms.Button();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -184,7 +184,7 @@ namespace PlrSim
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox4.Controls.Add(this.listView1);
-			this.groupBox4.Controls.Add(this.button6);
+			this.groupBox4.Controls.Add(this.AddImagebutton);
 			this.groupBox4.Controls.Add(this.button7);
 			this.groupBox4.Location = new System.Drawing.Point(162, 6);
 			this.groupBox4.Name = "groupBox4";
@@ -203,15 +203,16 @@ namespace PlrSim
 			this.button7.Text = "Remove";
 			this.button7.UseVisualStyleBackColor = true;
 			// 
-			// button6
+			// AddImagebutton
 			// 
-			this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button6.Location = new System.Drawing.Point(187, 505);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(60, 20);
-			this.button6.TabIndex = 1;
-			this.button6.Text = "Add";
-			this.button6.UseVisualStyleBackColor = true;
+			this.AddImagebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AddImagebutton.Location = new System.Drawing.Point(187, 505);
+			this.AddImagebutton.Name = "AddImagebutton";
+			this.AddImagebutton.Size = new System.Drawing.Size(60, 20);
+			this.AddImagebutton.TabIndex = 1;
+			this.AddImagebutton.Text = "Add";
+			this.AddImagebutton.UseVisualStyleBackColor = true;
+			this.AddImagebutton.Click += new System.EventHandler(this.AddNewImage_Click);
 			// 
 			// listView1
 			// 
@@ -384,7 +385,7 @@ namespace PlrSim
 		private System.Windows.Forms.TabPage tabPage3;
 		private System.Windows.Forms.GroupBox groupBox4;
 		private System.Windows.Forms.ListView listView1;
-		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button AddImagebutton;
 		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.ListBox listBox2;
