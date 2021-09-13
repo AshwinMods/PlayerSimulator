@@ -19,7 +19,13 @@ namespace PlrSim
 		#endregion
 
 		#region Public Functions
-
+		public async Task<bool> Execute()
+		{
+			foreach (var task in gameTasks)
+				if (!await task.Execute())
+					return false;
+			return true;
+		}
 		#endregion
 	}
 }

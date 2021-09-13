@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace PlrSim
 {
-	static class SaveLoadFile
+	public static class Utility
 	{
 		// Credit : deadlydog
 		// https://stackoverflow.com/questions/6115721/how-to-save-restore-serializable-object-to-from-file
@@ -93,6 +94,24 @@ namespace PlrSim
 				if (reader != null)
 					reader.Close();
 			}
+		}
+		#endregion
+
+		//Credit : fubo
+		//https://stackoverflow.com/questions/35151067/algorithm-to-compare-two-images-in-c-sharp/35153895
+		#region Image Comparision
+		public static List<bool> GetHash(Image bmpSource)
+		{
+			List<bool> lResult = new List<bool>();
+			Bitmap bmpMin = new Bitmap(bmpSource, new Size(16, 16));
+			for (int j = 0; j < bmpMin.Height; j++)
+				for (int i = 0; i < bmpMin.Width; i++)
+					lResult.Add(bmpMin.GetPixel(i, j).GetBrightness() < 0.5f);
+			return lResult;
+		}
+		public static int CompareImageHash(List<bool> iHash1, List<bool> iHash2)
+		{
+			return iHash1.Zip(iHash2, (i, j) => i == j).Count(eq => eq);
 		}
 		#endregion
 	}
